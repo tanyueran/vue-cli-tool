@@ -1,0 +1,187 @@
+/**
+ * @author [%author%]
+ * @date [%date%]
+ * @Description: 全局的样式：定义覆盖的、公用的等
+ */
+
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+	background: #F2F3F5;
+
+	&:before {
+		content: '';
+		display: table;
+	}
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html {
+	font-size: 10px;
+}
+
+body {
+	font-size: 14px;
+	font-family: "Microsoft YaHei", "微软雅黑", "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", Arial, sans-serif;
+	color: #333;
+
+	&:before {
+		content: '';
+		display: table;
+	}
+}
+
+a {
+	text-decoration: none;
+}
+
+
+.text-center {
+	text-align: center !important;
+}
+
+.text-right {
+	text-align: right !important;
+}
+
+.text-left {
+	text-align: left !important;
+}
+
+.left {
+	float: left !important;
+}
+
+.right {
+	float: right !important;
+}
+
+.clear {
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+
+.success-text {
+	color: #67C23A;
+}
+
+.error-text {
+	color: #F56C6C;
+}
+
+.doing-text {
+	color: #409EFF;
+}
+
+@import "./changeElmentUI.scss";
+
+// 所有页面外层容器的公用样式
+[class$='-page-wrapper']:not([class="login-page-wrapper"]) {
+	background: #fff;
+	width: $content-width;
+	min-width: $content-width;
+	margin: 0 auto;
+	border: 1px solid #E8E9E9;
+	padding: 22px;
+	min-height: 100%;
+}
+
+// 分页吸附
+.sticky {
+	position: fixed;
+}
+
+// 自定义的表格吸附样式
+.sticky_table_header {
+	position: fixed;
+	top: 0;
+	left: calc((100% - 1233px) / 2);
+	right: calc((100% - 1233px) / 2);
+	width: 1233px !important;
+	font-size: 12px;
+	z-index: 1000;
+	display: none;
+
+	.cell {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: 40px;
+		padding: 0 10px;
+	}
+
+	&.active {
+		display: flex;
+	}
+}
+
+// 吸附功能
+.sticky_footer-wrapper {
+	//position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	height: $pagination-footer-height;
+	display: flex;
+	align-items: center;
+
+	> div {
+		height: 100%;
+		width: #{$content-width - 40};
+		margin: 0 auto;
+		text-align: right;
+		background: #fff;
+	}
+}

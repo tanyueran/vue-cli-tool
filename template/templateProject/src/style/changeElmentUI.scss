@@ -1,0 +1,45 @@
+/**
+ * @author [%author%]
+ * @date [%date%]
+ * @Description: 修改部分element-ui的默认样式
+ */
+
+// 对话框
+.el-dialog__header {
+	border-bottom: 1px solid #E7E7E7;
+}
+
+.el-dialog__body {
+	padding: 15px !important;
+}
+
+.el-dialog__footer {
+	padding: 10px !important;
+	border-top: 1px solid #eee;
+}
+
+// 修改输入框禁用的样式
+.el-input.is-disabled .el-input__inner,
+.el-textarea.is-disabled .el-textarea__inner {
+	color: #606266 !important;
+}
+
+// 表格
+.el-table {
+	border: 1px solid #EBEEF5;
+}
+
+// 表头
+.el-table__header thead tr th {
+	background-color: #1D8CE8;
+	font-weight: bold;
+	text-align: center !important;
+	color: #fff;
+}
+
+// 回到顶部
+.el-backtop {
+	border-radius: 0 !important;
+	background: #3BBFF2 !important;
+	color: #fff !important;
+}
