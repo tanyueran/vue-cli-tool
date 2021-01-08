@@ -14,7 +14,7 @@ module.exports = {
       list.push(Random.guid());
     }
     return {
-      data: [(new Date().getTime()).toString()],
+      data: list,
       code: '00000',
       message: '请求成功！',
     };
