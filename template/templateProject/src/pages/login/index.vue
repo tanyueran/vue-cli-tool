@@ -4,7 +4,7 @@
       <div class="form-wrapper">
         <h2 class="text-center">[%projectName%]</h2>
         <el-form
-          :model="userObj"
+          :model="loginModel"
           label-position="top"
           ref="loginForm"
           label-width="60px">
@@ -12,16 +12,29 @@
             label="账号"
             :rules="[{required:true,message:'账号不可为空',}]"
             prop="username">
-            <el-input placeholder="请输入账号" v-model="userObj.username"></el-input>
+            <el-input
+              prefix-icon="el-icon-user"
+              placeholder="请输入账号"
+              v-model="loginModel.username">
+            </el-input>
           </el-form-item>
           <el-form-item
             label="密码"
             :rules="[{required:true,message:'密码不可为空',}]"
             prop="password">
-            <el-input placeholder="请输入密码" v-model="userObj.password"></el-input>
+            <el-input
+              prefix-icon="el-icon-lock"
+              placeholder="请输入密码"
+              v-model="loginModel.password"></el-input>
           </el-form-item>
-          <el-form-item class="text-center">
-            <el-button :loading="loading" @click="loginBtnHandler">登录</el-button>
+          <el-form-item>
+            <el-button
+              class="btn"
+              type="primary"
+              :loading="loading"
+              @click="loginBtnHandler">
+              登录
+            </el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -39,19 +52,21 @@ import {
   getUserInfo,
   login,
 } from '@/api/user';
+import md5 from 'md5';
 
 export default {
   name: 'loginPage',
   data() {
     return {
       loading: false,
-      userObj: {
+      loginModel: {
         username: '',
         password: '',
       },
     };
   },
   methods: {
+    // “登录”按钮的回调
     loginBtnHandler() {
       this.$refs.loginForm.validate()
         .then(() => {
@@ -66,7 +81,8 @@ export default {
     loginHandler() {
       this.loading = true;
       login({
-        utk: this.userObj.username,
+        username: this.loginModel.username,
+        password: md5(this.loginModel.password),
       })
         .then((res) => {
           this.$store.commit('user/set_token', res);
@@ -95,6 +111,7 @@ export default {
 .login-page-wrapper {
   position: relative;
   height: 100%;
+  overflow-y: hidden;
 }
 
 h2 {
@@ -114,7 +131,11 @@ h2 {
   padding: 3em 3rem 1em;
   transition: all .3s;
   border: 1px solid #efefef;
+  border-radius: 6px;
 
+  &:hover {
+    border-color: #909090;
+  }
 }
 
 .tip-wrapper {
@@ -123,5 +144,9 @@ h2 {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.btn {
+  width: 100%;
 }
 </style>

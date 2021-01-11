@@ -11,13 +11,9 @@ import router from './router';
 import store from './store';
 import './style/index.scss';
 import './plugins/element';
-// 引入自定义的全局组件
-import mHeaderComp from './components/m-header.vue';
 
 Vue.use(Sticky);
 Vue.config.productionTip = false;
-
-Vue.component('m-header-comp', mHeaderComp);
 
 // 初始化
 new Vue({

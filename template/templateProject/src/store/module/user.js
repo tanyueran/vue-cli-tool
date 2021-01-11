@@ -59,5 +59,11 @@ export default {
           console.log(err);
         });
     },
+
+    // 退出登录
+    logout({ commit }) {
+      commit('set_token', '');
+      commit('set_user_info', {});
+    },
   },
 };

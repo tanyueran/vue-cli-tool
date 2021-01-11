@@ -10,9 +10,25 @@ export default [
   },
   // 首页
   {
-    path: '/home',
-    name: 'homePage',
-    component: () => import('../pages/home/index/index.vue'),
+    path: '/',
+    component: () => import('../layout/index.vue'),
+    children: [
+      {
+        path: 'home',
+        name: 'homePage',
+        component: () => import('../pages/home/index/index'),
+      },
+      {
+        path: '/home/page1',
+        name: 'homePage1',
+        component: () => import('../pages/home/page1'),
+      },
+      {
+        path: '/home/page2',
+        name: 'homePage2',
+        component: () => import('../pages/home/page2'),
+      },
+    ],
   },
   // 登录页面
   {

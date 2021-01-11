@@ -13,4 +13,13 @@ export default new Vuex.Store({
   modules: {
     user: User,
   },
+  state: {
+    collapse: true,
+  },
+  mutations: {
+    // 切换导航栏
+    change_collapse(state, val) {
+      Vue.set(state, 'collapse', val);
+    },
+  },
 });

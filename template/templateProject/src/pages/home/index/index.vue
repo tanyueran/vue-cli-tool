@@ -17,7 +17,7 @@ export default {
 
 <style scoped lang="scss">
 .index-page-wrapper {
-  height: 100%;
+  height: 1000px;
   font-size: 40px;
   text-align: center;
 }
